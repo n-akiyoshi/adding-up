@@ -36,7 +36,10 @@ rl.on('close', () => {
   const rankingArray = Array.from(prefectureDataMap).sort((pair1, pair2) => {
     return pair2[1].change - pair1[1].change;
   });
-  console.log(rankingArray);
+  const rankingStrings = rankingArray.map(([key, value]) => {
+    return `${key}: ${value.before}=>${value.after} 変化率: ${value.change}`;
+  });//Mapのキーと値が要素になった配列を[key, value]として受け取り、それを文字列に変換する処理
+  console.log(rankingStrings);
 });
 
 
